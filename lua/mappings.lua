@@ -20,3 +20,9 @@ vim.keymap.set("x", "<leader>p", '"_dp')
 vim.keymap.set('n', '<Leader>y', '"+y', { noremap = true, silent = true })
 vim.keymap.set('v', '<Leader>y', '"+y', { noremap = true, silent = true })
 
+-- Map h j k l to cursor move
+vim.keymap.set('i', '<C-h>', '<Left>', { noremap = true, silent = true})
+
+vim.keymap.set('i', '<C-j>', '<Down>', { noremap = true, silent = true})
+vim.keymap.set('i', '<C-k>', '<Up>', { noremap = true, silent = true})
+vim.keymap.set('i', '<C-l>', '<Right>', { noremap = true, silent = true})

@@ -1,4 +1,3 @@
-require("vim-options");
-require("mappings");
-require("config.lazy");
-
+require("vim-options")
+require("mappings")
+require("config.lazy")

@@ -117,7 +117,8 @@ return {
 
       dashboard.section.buttons.val = {
         dashboard.button("SPC e e", " New file", "<Cmd>ene <CR>"),
-        dashboard.button("SPC f f", " Find file"),
+        dashboard.button("SPC f f", " Find file", ":Telescope find_files<CR>"),
+        dashboard.button("CTL n n", " Open Dir", ":Neotree<CR>"),
         dashboard.button("SPC s s", " Neobin config", "<Cmd>Neotree reveal ~/.config/nvim<CR>"),
         dashboard.button("SPC q q", "  Quit", "<Cmd>qa<CR>"),
       }

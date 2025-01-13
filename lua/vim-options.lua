@@ -6,9 +6,10 @@ vim.cmd("set shiftwidth=2")
 vim.o.number = true
 
 vim.g.markdown_fenced_languages = {
-  "ts=typescript",
+	"ts=typescript",
 }
 -- Show relative line numbers
+vim.opt.scrolloff = 12
 vim.o.relativenumber = true
 vim.o.undofile = true
 vim.o.undodir = vim.fn.stdpath("config") .. "/undo"

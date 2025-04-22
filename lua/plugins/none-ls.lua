@@ -7,11 +7,20 @@ return {
       sources = {
         null_ls.builtins.formatting.stylua,
         null_ls.builtins.completion.spell,
-        null_ls.builtins.formatting.prettier,
---:        null_ls.builtins.diagnostics.eslint_d,
+        null_ls.builtins.formatting.prettier.with({
+          filetypes = { "javascript" }, -- Chỉ áp dụng Prettier cho JavaScript
+        }),
+        --:        null_ls.builtins.diagnostics.eslint_d,
         null_ls.builtins.formatting.gofumpt,
         null_ls.builtins.formatting.goimports_reviser,
         null_ls.builtins.formatting.golines,
+        null_ls.builtins.formatting.black.with({
+          filetypes = { "python" },
+          command = "black",
+          args = { "--fast", "-" }, -- `--fast` skips safety checks for speed
+          to_stdin = true,
+        }),
+        --	null_ls.builtins.formatting.ruff,
         --require("none-ls.diagnostics.eslint"), -- requires none-ls-extras.nvim
       },
       on_attach = function(client, bufnr)
@@ -24,7 +33,7 @@ return {
             group = augroup,
             buffer = bufnr,
             callback = function()
-              vim.lsp.buf.format({bufnr = bufnr})
+              vim.lsp.buf.format({ bufnr = bufnr })
             end,
           })
         end
